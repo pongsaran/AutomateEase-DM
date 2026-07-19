@@ -28,7 +28,7 @@ export default function Home() {
       <section className="content">
         <header className="topbar">
           <div><p className="eyebrow">MARKETING COMMAND CENTER</p><h1>สวัสดี, ทีมการตลาด</h1><p className="subtitle">เปลี่ยน campaign brief ให้เป็นคอนเทนต์พร้อมเผยแพร่ โดยมีคุณควบคุมทุกขั้นตอน</p></div>
-          <button className="primary">+ สร้างแคมเปญ</button>
+          <a className="primary actionLink" href="/campaigns/new">+ สร้างแคมเปญ</a>
         </header>
 
         <section className="stats" id="overview" aria-label="สรุปภาพรวม">
@@ -58,7 +58,7 @@ export default function Home() {
             <p>ใส่เป้าหมายสั้น ๆ แล้ว AI จะเสนอ content workflow ให้คุณตรวจสอบ</p>
             <label htmlFor="goal">เป้าหมายแคมเปญ</label>
             <textarea id="goal" defaultValue="โปรโมตหลักสูตร Digital Marketing สำหรับนักเรียน ม.6" />
-            <button className="primary full">สร้าง Content Pack <span>→</span></button>
+            <a className="primary full actionLink" href="/campaigns/new">สร้าง Content Pack <span>→</span></a>
           </article>
         </section>
 
