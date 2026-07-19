@@ -18,7 +18,7 @@ export default function Home() {
         <div className="brand"><span className="brandMark">A</span><span>AutomateEase<span className="muted">-DM</span></span></div>
         <nav aria-label="เมนูหลัก">
           <a className="navItem active" href="#overview">ภาพรวม</a>
-          <a className="navItem" href="#campaigns">แคมเปญ</a>
+          <a className="navItem" href="/campaigns">แคมเปญ</a>
           <a className="navItem" href="#workflow">เวิร์กโฟลว์</a>
           <a className="navItem" href="#content">คลังคอนเทนต์</a>
         </nav>
@@ -40,7 +40,7 @@ export default function Home() {
 
         <section className="grid">
           <article className="panel campaignPanel" id="campaigns">
-            <div className="panelHead"><div><p className="eyebrow">ACTIVE WORK</p><h2>แคมเปญล่าสุด</h2></div><button className="textButton">ดูทั้งหมด →</button></div>
+            <div className="panelHead"><div><p className="eyebrow">ACTIVE WORK</p><h2>แคมเปญล่าสุด</h2></div><a className="textButton textLink" href="/campaigns">ดูทั้งหมด →</a></div>
             <div className="campaignList">
               {campaigns.map((campaign) => (
                 <div className="campaign" key={campaign.name}>
