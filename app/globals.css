@@ -178,3 +178,39 @@ input:focus { outline: 3px solid #6547d920; border-color: var(--purple); }
   .formCard, .reviewCard, .reviewSummary, .successCard { padding: 21px; }
   .formActions, .successActions { align-items: stretch; flex-direction: column-reverse; }
 }
+
+
+/* Campaign history */
+.textLink { text-decoration: none; font-size: 13px; }
+.historyShell { width: min(1080px, calc(100% - 40px)); margin: 0 auto; padding: 48px 0 72px; }
+.historyTop { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.historyStats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 34px 0 18px; }
+.historyStats article { min-height: 112px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; background: white; border: 1px solid var(--line); border-radius: 13px; }
+.historyStats span { color: var(--muted); font-size: 12px; }
+.historyStats strong { font-size: 29px; letter-spacing: -.04em; }
+.historyStats .smallMetric { font-size: 18px; }
+.historyCard { background: white; border: 1px solid var(--line); border-radius: 15px; padding: 25px; }
+.historyCardHead { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-bottom: 18px; }
+.historyList { border-top: 1px solid var(--line); }
+.historyItem { display: grid; grid-template-columns: auto 1fr auto; gap: 15px; align-items: center; padding: 20px 2px; border-bottom: 1px solid var(--line); }
+.historyItem:last-child { border-bottom: 0; }
+.historyIcon { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 10px; color: var(--purple); background: var(--purple-soft); font-weight: 850; }
+.historyMain { min-width: 0; }
+.historyMain > strong { display: block; margin-bottom: 5px; }
+.historyMain > p { margin: 0 0 9px; color: var(--muted); font-size: 13px; }
+.historyMeta { display: flex; flex-wrap: wrap; gap: 7px 15px; color: #747d8f; font-size: 11px; }
+.historyStatus { display: grid; justify-items: end; gap: 8px; }
+.historyStatus time { color: var(--muted); font-size: 11px; }
+.approvedPill { color: var(--green); background: #e9f8f1; border-radius: 999px; padding: 6px 9px; font-size: 11px; font-weight: 800; }
+.emptyState { padding: 54px 20px; color: var(--muted); text-align: center; border-top: 1px solid var(--line); }
+.emptyState p { margin-bottom: 0; }
+.storageNote { max-width: 760px; margin: 18px auto 0; color: var(--muted); font-size: 12px; text-align: center; line-height: 1.6; }
+
+@media (max-width: 700px) {
+  .historyShell { width: min(100% - 28px, 1080px); padding-top: 30px; }
+  .historyTop { display: grid; }
+  .historyStats { grid-template-columns: 1fr; }
+  .historyStats article { min-height: 94px; }
+  .historyItem { grid-template-columns: auto 1fr; }
+  .historyStatus { grid-column: 2; justify-items: start; }
+}
