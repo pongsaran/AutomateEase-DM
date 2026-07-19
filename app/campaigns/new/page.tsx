@@ -53,6 +53,26 @@ export default function NewCampaignPage() {
     setPack((current) => ({ ...current, [field]: value }));
   }
 
+  function approveCampaign() {
+    const record = {
+      id: crypto.randomUUID(),
+      ...campaign,
+      status: "Approved" as const,
+      channel: "Website + Facebook",
+      approvedAt: new Date().toISOString(),
+      contentPack: pack,
+    };
+
+    try {
+      const existing = JSON.parse(localStorage.getItem("automateease-campaigns") || "[]");
+      localStorage.setItem("automateease-campaigns", JSON.stringify([record, ...existing]));
+    } catch {
+      // The approval flow still completes when browser storage is unavailable.
+    }
+
+    setStep("approved");
+  }
+
   return (
     <main className="workspacePage">
       <header className="workspaceHeader">
@@ -131,7 +151,7 @@ export default function NewCampaignPage() {
               <label>Hashtags
                 <input value={pack.hashtags} onChange={(e) => updatePack("hashtags", e.target.value)} />
               </label>
-              <div className="formActions"><button className="secondary" onClick={() => setStep("brief")}>ขอแก้ไข</button><button className="primary" onClick={() => setStep("approved")}>อนุมัติ Content Pack ✓</button></div>
+              <div className="formActions"><button className="secondary" onClick={() => setStep("brief")}>ขอแก้ไข</button><button className="primary" onClick={approveCampaign}>อนุมัติ Content Pack ✓</button></div>
             </div>
           </section>
         )}
@@ -141,8 +161,8 @@ export default function NewCampaignPage() {
             <span className="successIcon">✓</span>
             <p className="eyebrow">STEP 03 · APPROVED</p>
             <h2>Content Pack ได้รับการอนุมัติแล้ว</h2>
-            <p>ข้อมูลยังไม่ได้ถูกเผยแพร่จริง ใน Sprint ถัดไปเราจะบันทึกแคมเปญลงฐานข้อมูลและเชื่อม Webhook สำหรับส่งต่อไปยังเว็บไซต์</p>
-            <div className="successActions"><a className="secondary" href="/">กลับ Dashboard</a><button className="primary" onClick={() => setStep("review")}>กลับไปตรวจ Content</button></div>
+            <p>แคมเปญถูกบันทึกในเบราว์เซอร์แล้ว แต่ยังไม่ได้เผยแพร่จริง คุณสามารถเปิดหน้าประวัติเพื่อตรวจรายการที่อนุมัติได้</p>
+            <div className="successActions"><a className="secondary" href="/">กลับ Dashboard</a><a className="primary actionLink" href="/campaigns">ดูประวัติแคมเปญ →</a></div>
           </section>
         )}
       </section>
